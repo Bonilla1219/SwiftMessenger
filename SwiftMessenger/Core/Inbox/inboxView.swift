@@ -9,6 +9,7 @@ import SwiftUI
 
 struct inboxView: View {
     @State private var showNewMessageView = false
+    @State private var user = User.MOCK_USER
     var body: some View {
         NavigationStack{
             ScrollView{
@@ -22,6 +23,9 @@ struct inboxView: View {
                 .listStyle(PlainListStyle())
                 .frame(height: UIScreen.main.bounds.height - 120)
             }
+            .navigationDestination(for: User.self, destination: { user in
+                ProfileView(user: user)
+            })
             //when doing a full screen cover it does not present it as a navigation stack so we have to embedd the view in a navigation stack
             .fullScreenCover(isPresented: $showNewMessageView, content: {
                 NewMessageView()
@@ -29,7 +33,9 @@ struct inboxView: View {
             .toolbar{
                 ToolbarItem(placement: .navigationBarLeading) {
                     HStack{
-                        Image(systemName: "person.circle.fill")
+                        NavigationLink(value: user) {
+                            CircularProfileImageView(user: user, size: .xSmall)
+                        }
                         
                         Text("Chats")
                             .font(.title)

@@ -43,14 +43,8 @@ A simple messenger clone built as a practice project. This mobile app includes u
 
 ## 🔧 Tech Stack
 
-- **Frontend:** React Native / Flutter / (Your framework)
+- **Frontend:** SwiftUI
 - **Backend:** Firebase (Auth, Firestore, Realtime DB)
-- **Other:** Firebase Storage (for profile pictures), React Navigation (if RN), etc.
+- **Other:** Firebase Storage (for profile pictures)
 
 ---
-
-## 🚀 Getting Started
-
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/your-us
